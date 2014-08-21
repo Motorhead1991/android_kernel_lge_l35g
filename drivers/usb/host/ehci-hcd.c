@@ -112,6 +112,7 @@ static unsigned int hird;
 module_param(hird, int, S_IRUGO);
 MODULE_PARM_DESC(hird, "host initiated resume duration, +1 for each 75us\n");
 
+#ifdef LGE_TRACFONE
 extern int user_diag_enable;
 static char bct = 0;
 static int get_bct(char *buffer, struct kernel_param *kp);
@@ -130,7 +131,7 @@ static int get_bct(char *buffer, struct kernel_param *kp)
 
 	return 1;
 }
-
+#endif
 
 #define	INTR_MASK (STS_IAA | STS_FATAL | STS_PCD | STS_ERR | STS_INT)
 
